@@ -2,6 +2,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from Controllers.GetData import getListOfNseCompanies
+import os
 
 app = FastAPI()
 
@@ -31,3 +32,7 @@ def read_item(item_id: int, q: str = None):
 @app.get("/nse")
 def nseCompanies():
     return getListOfNseCompanies()
+    
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 10000))
+    app.run(app, host="0.0.0.0", port=port)
