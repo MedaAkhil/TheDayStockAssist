@@ -1,11 +1,15 @@
 import json
 from nsetools import Nse
 import yfinance as yf
+from fastapi import HTTPException
+
+
 
 
 def getListOfNseCompanies():
     nse = Nse()
     stock_list = nse.get_stock_codes()
+    print(len(stock_list))
    # stock_list = stock_list[0:10]
     if not isinstance(stock_list, list):
         raise TypeError("Expected list from nse.get_stock_codes(), got something else.")
@@ -34,7 +38,7 @@ def getListOfNseCompanies():
             })
     
         except Exception:
-            continue  # Skip if error in fetching stock data
+            raise HTTPException(status_code=500, detail=f"Error fetching NSE companies")
     print(result )
     return json.dumps(result, indent=4)
 
