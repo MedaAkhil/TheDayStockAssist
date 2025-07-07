@@ -21,3 +21,6 @@ to zip all the dependencies
 
 
 />zip aws_lambda_artifacts.zip -u app.py 
+
+to run on the AWS
+uvicorn app:app --host 0.0.0.0 --port 10000

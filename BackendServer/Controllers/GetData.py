@@ -13,7 +13,7 @@ def getListOfNseCompanies():
    # stock_list = stock_list[0:10]
     if not isinstance(stock_list, list):
         raise TypeError("Expected list from nse.get_stock_codes(), got something else.")
-
+    print(stock_list)
     result = []
 
     for symbol in stock_list:
