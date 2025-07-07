@@ -32,10 +32,10 @@ def getListOfNseCompanies():
                 "stock_name": company_name,
                 "growth_rate_percent": round(growth_rate, 2) if growth_rate is not None else None
             })
-
+    
         except Exception:
             continue  # Skip if error in fetching stock data
-
+    print(result )
     return json.dumps(result, indent=4)
 
 # Example usage
