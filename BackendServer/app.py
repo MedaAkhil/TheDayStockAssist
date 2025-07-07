@@ -6,12 +6,8 @@ import os
 
 app = FastAPI()
 
-origins = [
-    "http://localhost:5173",  # SvelteKit dev server
-    "http://127.0.0.1:5173",
-    "http://localhost:3000",  # optional, for other setups
-    "http://yourdomain.com"   # your deployed frontend (for production)
-]
+origins = ["*"]
+
 
 app.add_middleware(
     CORSMiddleware,
