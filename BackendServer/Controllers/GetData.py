@@ -6,7 +6,7 @@ import yfinance as yf
 def getListOfNseCompanies():
     nse = Nse()
     stock_list = nse.get_stock_codes()
-    stock_list = stock_list[0:10]
+   # stock_list = stock_list[0:10]
     if not isinstance(stock_list, list):
         raise TypeError("Expected list from nse.get_stock_codes(), got something else.")
 
